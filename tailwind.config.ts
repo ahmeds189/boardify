@@ -10,7 +10,11 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "10px",
+      screens: {
+        md: "800px",
+        xl: "1140px",
+      },
     },
     extend: {
       colors: {

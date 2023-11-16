@@ -6,7 +6,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex flex-col min-h-[100svh] bg-slate-50">
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 container">{children}</main>
       <Footer />
     </div>
   );

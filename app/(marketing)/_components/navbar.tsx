@@ -25,9 +25,12 @@ export default function Navbar() {
         </Link>
         <Link
           href="/sign-up"
-          className={buttonVariants({
-            size: "sm",
-          })}
+          className={cn(
+            buttonVariants({
+              size: "sm",
+            }),
+            "hidden sm:inline-flex"
+          )}
         >
           {loggedin ? "Dashboard" : "Get started for free"}
         </Link>

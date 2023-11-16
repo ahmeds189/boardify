@@ -6,8 +6,20 @@ export default function Footer() {
     <footer>
       <div className="container flex items-center space-x-2 py-3">
         <Logo className="mr-auto" />
-        <Button variant="link">Privacy Policy</Button>
-        <Button variant="link">Terms of Service</Button>
+        <Button
+          variant="link"
+          size="sm"
+          className="text-sm p-0 text-muted-foreground"
+        >
+          Privacy Policy
+        </Button>
+        <Button
+          variant="link"
+          size="sm"
+          className="text-sm p-0 text-muted-foreground"
+        >
+          Terms of Service
+        </Button>
       </div>
     </footer>
   );
