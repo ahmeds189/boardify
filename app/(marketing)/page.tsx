@@ -7,7 +7,7 @@ const loggedin = false;
 export default function MarketingPage() {
   return (
     <div className="container mt-20 md:mt-28 relative space-y-6 text-center">
-      <div className="circle absolute w-32 h-32 md:left-2/3"></div>
+      <div className="circle absolute w-32 h-32 md:left-2/3 md:top-28"></div>
 
       <div className="text-sm bg-amber-100 text-amber-700 inline-block p-2 shadow-sm rounded-full font-semibold">
         <Medal className="inline-block h-5 w-5 mr-2" />
