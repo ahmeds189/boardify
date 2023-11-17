@@ -1,3 +1,3 @@
 export default function OrganizationPage() {
-  return <div>org page</div>;
+  return <div>!! org content here !!</div>;
 }
