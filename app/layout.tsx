@@ -3,6 +3,7 @@ import { type Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { siteconfig } from "@/config/site";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <ClerkProvider>
+        <body className={poppins.className}>{children}</body>
+      </ClerkProvider>
     </html>
   );
 }

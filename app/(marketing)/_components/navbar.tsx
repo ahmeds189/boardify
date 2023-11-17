@@ -1,39 +1,27 @@
-import Logo from "@/app/_components/logo";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+"use client";
 
-const loggedin = false;
+import Logo from "@/app/_components/logo";
+import RedirectLink from "@/app/_components/redirect-link";
+import { useAuth } from "@clerk/nextjs";
 
 export default function Navbar() {
+  const { isSignedIn } = useAuth();
+
   return (
     <nav className="bg-white shadow-sm border-b">
       <div className="container flex items-center space-x-2 py-3">
         <Logo className="mr-auto" />
 
-        <Link
-          href="/sign in"
-          className={cn(
-            buttonVariants({
-              size: "sm",
-              variant: "outline",
-            }),
-            loggedin ? "hidden" : "null"
-          )}
-        >
-          Login
-        </Link>
-        <Link
-          href="/sign-up"
-          className={cn(
-            buttonVariants({
-              size: "sm",
-            }),
-            "hidden sm:inline-flex"
-          )}
-        >
-          {loggedin ? "Dashboard" : "Get started for free"}
-        </Link>
+        <RedirectLink
+          href="dashboard/sign-in"
+          title="Login"
+          hidden={isSignedIn}
+          variant="outline"
+        />
+        <RedirectLink
+          href={isSignedIn ? "dashboard" : "dashboard/sign-up"}
+          title={isSignedIn ? "Dashboard" : "Get started for free"}
+        />
       </div>
     </nav>
   );

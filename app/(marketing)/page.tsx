@@ -1,10 +1,11 @@
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+"use client";
 import { Medal } from "lucide-react";
-
-const loggedin = false;
+import RedirectLink from "../_components/redirect-link";
+import { useAuth } from "@clerk/nextjs";
 
 export default function MarketingPage() {
+  const { isSignedIn } = useAuth();
+
   return (
     <div className="container mt-20 md:mt-28 relative space-y-6 text-center">
       <div className="circle absolute w-32 h-32 md:left-2/3 md:top-28"></div>
@@ -13,10 +14,9 @@ export default function MarketingPage() {
         <Medal className="inline-block h-5 w-5 mr-2" />
         NO 1 TASK MANAGMENT
       </div>
-      <h1 className="mx-auto tracking-tight text-4xl sm:text-5xl sm:max-w-xl font-bold">
-        manage your projects and tasks with
+      <h1 className="mx-auto tracking-tight leading-[3rem] sm:leading-[4rem] text-4xl sm:text-5xl sm:max-w-xl font-bold">
+        manage your projects and tasks with &nbsp;
         <span className="bg-gradient-to-br from-fuchsia-600 to-blue-600 bg-clip-text text-transparent">
-          {" "}
           ease.
         </span>
       </h1>
@@ -25,14 +25,11 @@ export default function MarketingPage() {
         high rises to the home office, the way your team works is unique -
         accomplish it all with Taskify.
       </p>
-      <Link
-        href="/sign-up"
-        className={buttonVariants({
-          size: "lg",
-        })}
-      >
-        {loggedin ? "Go to Dashboard" : "Get started for free"}
-      </Link>
+      <RedirectLink
+        href={isSignedIn ? "dashboard" : "dashboard/sign-up"}
+        title={isSignedIn ? "Dashboard" : "Get started for free"}
+        size="lg"
+      />
     </div>
   );
 }
