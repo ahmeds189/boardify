@@ -5,21 +5,25 @@ import RedirectLink from "@/app/_components/redirect-link";
 import { useAuth } from "@clerk/nextjs";
 
 export default function Navbar() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, orgId } = useAuth();
+
+  let session = "/sign-up";
+  if (isSignedIn && !orgId) session = "/select-org";
+  if (isSignedIn && orgId) session = `/organization/${orgId}`;
 
   return (
-    <nav className="bg-white shadow-sm border-b">
+    <nav className="bg-background shadow-sm border-b">
       <div className="container flex items-center space-x-2 py-3">
         <Logo className="mr-auto" />
 
         <RedirectLink
-          href="dashboard/sign-in"
+          href="/sign-in"
           title="Login"
           hidden={isSignedIn}
           variant="outline"
         />
         <RedirectLink
-          href={isSignedIn ? "dashboard" : "dashboard/sign-up"}
+          href={session}
           title={isSignedIn ? "Dashboard" : "Get started for free"}
         />
       </div>

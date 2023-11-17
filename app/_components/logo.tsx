@@ -13,9 +13,7 @@ export default function Logo({ className }: { className?: string }) {
       )}
     >
       <Image src={logo} alt="logo" width="42" priority />
-      <p className="text-lg text-neutral-700 font-semibold hidden sm:block">
-        Boardify
-      </p>
+      <p className="text-lg font-semibold hidden sm:block">Boardify</p>
     </Link>
   );
 }
