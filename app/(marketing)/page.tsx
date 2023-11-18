@@ -19,7 +19,7 @@ export default function MarketingPage() {
         NO 1 TASK MANAGMENT
       </div>
       <h1 className="mx-auto tracking-tight leading-[3rem] sm:leading-[4rem] text-4xl sm:text-5xl sm:max-w-xl font-bold">
-        manage your projects and tasks with &nbsp;
+        manage your projects and tasks with&nbsp;
         <span className="bg-gradient-to-br from-fuchsia-600 to-blue-600 bg-clip-text text-transparent">
           ease.
         </span>
