@@ -1,11 +1,11 @@
 import { type PropsWithChildren } from "react";
-import Sidebar from "../_components/sidebar";
+import { OrgSwitcher } from "./_components/org-switcher";
 
 export default function OrganizationLayout({ children }: PropsWithChildren) {
   return (
-    <main className="flex mt-10 flex-1 container">
-      <Sidebar />
+    <>
+      <OrgSwitcher />
       {children}
-    </main>
+    </>
   );
 }
