@@ -5,8 +5,8 @@ export default function OrganizationListPage() {
     <>
       <OrganizationList
         hidePersonal
-        afterSelectOrganizationUrl="/organizations"
-        afterCreateOrganizationUrl="/organizations"
+        afterSelectOrganizationUrl="/org/:id"
+        afterCreateOrganizationUrl="/org/:id"
       />
     </>
   );
