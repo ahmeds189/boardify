@@ -2,19 +2,23 @@
 
 import { Accordion } from "@/components/ui/accordion";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
 import NavItem, { Organization } from "./nav-item";
 
 import Link from "next/link";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import { useLocalStorage } from "usehooks-ts";
+import { cn } from "@/lib/utils";
 
 type Props = {
   storageKey?: string;
+  className?: string;
 };
 
-export default function Sidebar({ storageKey = "expanded-org" }: Props) {
+export default function Sidebar({
+  storageKey = "expanded-org",
+  className,
+}: Props) {
   const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
     storageKey,
     {}
@@ -37,10 +41,6 @@ export default function Sidebar({ storageKey = "expanded-org" }: Props) {
     []
   );
 
-  if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
-    return <Skeleton className="h-20 w-52" />;
-  }
-
   const onExpand = (id: string) => {
     setExpanded((curr) => ({
       ...curr,
@@ -48,8 +48,20 @@ export default function Sidebar({ storageKey = "expanded-org" }: Props) {
     }));
   };
 
+  // handle loading state
+  if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
+    return (
+      <aside className="basis-52">
+        <Skeleton className="h-9 w-full mb-5" />
+        <NavItem.Skeleton />
+        <NavItem.Skeleton />
+        <NavItem.Skeleton />
+      </aside>
+    );
+  }
+
   return (
-    <aside className="hidden md:block basis-52 lg:basis-72 shrink-0">
+    <aside className={cn("basis-52 shrink-0", className)}>
       <Link
         href="/select-org"
         className="w-full flex justify-between items-center text-sm mb-5"
