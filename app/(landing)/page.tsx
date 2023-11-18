@@ -1,15 +1,9 @@
-"use client";
 import { Medal } from "lucide-react";
-import RedirectLink from "../_components/redirect-link";
-import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function MarketingPage() {
-  const { isSignedIn, orgId } = useAuth();
-
-  let session = "/sign-up";
-  if (isSignedIn && !orgId) session = "/select-org";
-  if (isSignedIn && orgId) session = `/organization/${orgId}`;
-
   return (
     <div className="container mt-20 md:mt-28 relative space-y-6 text-center">
       <div className="circle absolute w-32 h-32 right-0 opacity-25 md:opacity-60"></div>
@@ -29,11 +23,9 @@ export default function MarketingPage() {
         high rises to the home office, the way your team works is unique -
         accomplish it all with Taskify.
       </p>
-      <RedirectLink
-        href={session}
-        title={isSignedIn ? "Dashboard" : "Get started for free"}
-        size="lg"
-      />
+      <Link href="/sign-up" className={cn(buttonVariants({ size: "lg" }))}>
+        Sign up
+      </Link>
     </div>
   );
 }

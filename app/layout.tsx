@@ -2,8 +2,8 @@ import { type PropsWithChildren } from "react";
 import { type Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { siteconfig } from "@/config/site";
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
