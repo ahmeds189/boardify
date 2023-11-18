@@ -8,6 +8,11 @@ export default authMiddleware({
     if (!auth.userId && !auth.isPublicRoute) {
       return redirectToSignIn({ returnBackUrl: req.url });
     }
+    // force choose org first
+    if (auth.userId && req.nextUrl.pathname === "/org") {
+      const orgSelection = new URL("/select-org", req.url);
+      return NextResponse.redirect(orgSelection);
+    }
   },
 });
 
