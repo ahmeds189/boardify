@@ -51,7 +51,7 @@ export default function Sidebar({
   // handle loading state
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
-      <aside className="basis-52">
+      <aside className="basis-52 hidden md:block">
         <Skeleton className="h-9 w-full mb-5" />
         <NavItem.Skeleton />
         <NavItem.Skeleton />
