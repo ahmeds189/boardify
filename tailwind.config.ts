@@ -10,10 +10,12 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "10px",
+      padding: "2rem",
       screens: {
-        md: "800px",
-        xl: "1140px",
+        default: "75rem",
+      },
+      minHeight: {
+        screen: "100svh",
       },
     },
     extend: {

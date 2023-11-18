@@ -12,7 +12,7 @@ export default function Logo({ className }: { className?: string }) {
         "flex items-center space-x-2 duration-200 hover:opacity-75"
       )}
     >
-      <Image src={logo} alt="logo" width="42" priority />
+      <Image src={logo} alt="logo" width="40" priority />
       <p className="text-lg font-semibold hidden sm:block">Boardify</p>
     </Link>
   );
