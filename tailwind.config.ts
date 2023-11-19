@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.4rem",
       screens: {
         default: "75rem",
       },
@@ -72,6 +72,12 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      maxWidth: {
+        unique: "480px",
+      },
+      width: {
+        unique: "480px",
       },
     },
   },

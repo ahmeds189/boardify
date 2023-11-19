@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
       <Navbar className="flex space-x-2" isMobile>
         <UserButton afterSignOutUrl="/" />
       </Navbar>
-      <main className="flex flex-1 md:space-x-4 container mt-10">
+      <main className="flex md:space-x-6 container mt-10">
         <Sidebar className="hidden md:block" />
         <MobileSidebar />
         {children}

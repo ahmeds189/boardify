@@ -1,9 +1,13 @@
+"use client";
+
 import { Medal } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { useAuth } from "@clerk/nextjs";
 
 export default function MarketingPage() {
+  const { userId } = useAuth();
   return (
     <div className="container mt-20 md:mt-28 relative space-y-6 text-center">
       <div className="circle absolute w-32 h-32 right-0 opacity-25 md:opacity-60"></div>
@@ -23,8 +27,11 @@ export default function MarketingPage() {
         high rises to the home office, the way your team works is unique -
         accomplish it all with Taskify.
       </p>
-      <Link href="/sign-up" className={cn(buttonVariants({ size: "lg" }))}>
-        Sign up
+      <Link
+        href={userId ? "/select-org" : "/sign-up"}
+        className={cn(buttonVariants({ size: "lg" }))}
+      >
+        {userId ? "Dashboard" : "Get start for free"}
       </Link>
     </div>
   );

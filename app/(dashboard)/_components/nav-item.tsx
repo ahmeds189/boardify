@@ -46,7 +46,7 @@ export default function NavItem({
     {
       label: "Settings",
       icon: <Settings className="h-4 w-4 me-2" />,
-      href: `/org/${organization.id}/settings`,
+      href: `/org/${organization.id}?settings=true`,
     },
     {
       label: "Billing",
@@ -72,14 +72,13 @@ export default function NavItem({
             "bg-sky-500/10 text-sky-700 hover:bg-sky-400/20"
         )}
       >
-        <div className="w-7 h-7 relative">
-          <Image
-            fill
-            src={organization.imageUrl}
-            alt="organization image"
-            className="object-cover rounded-sm"
-          />
-        </div>
+        <Image
+          src={organization.imageUrl}
+          alt="organization image"
+          className="object-cover rounded-sm"
+          width={27}
+          height={27}
+        />
         <span className="text-sm font-medium flex-1 text-start">
           {organization.name}
         </span>
