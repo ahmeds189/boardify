@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
+import { cn, truncate } from "@/lib/utils";
 
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 
@@ -46,7 +46,7 @@ export default function NavItem({
     {
       label: "Settings",
       icon: <Settings className="h-4 w-4 me-2" />,
-      href: `/org/${organization.id}?settings=true`,
+      href: `/org/${organization.id}/settings`,
     },
     {
       label: "Billing",
@@ -79,9 +79,9 @@ export default function NavItem({
           width={27}
           height={27}
         />
-        <span className="text-sm font-medium flex-1 text-start">
-          {organization.name}
-        </span>
+        <p className="text-sm font-medium flex-1 text-start">
+          {truncate(organization.name, 20)}
+        </p>
       </AccordionTrigger>
       <AccordionContent className="flex flex-col space-y-1 p-2">
         {routes.map((route) => (

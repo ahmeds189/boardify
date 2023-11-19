@@ -56,6 +56,7 @@ export default function Sidebar({
         <NavItem.Skeleton />
         <NavItem.Skeleton />
         <NavItem.Skeleton />
+        <NavItem.Skeleton />
       </aside>
     );
   }
