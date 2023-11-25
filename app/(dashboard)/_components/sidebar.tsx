@@ -52,11 +52,15 @@ export default function Sidebar({
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
       <aside className="basis-52 hidden md:block">
-        <Skeleton className="h-9 w-full mb-5" />
+        <Skeleton className="h-10 w-full mb-5" />
         <NavItem.Skeleton />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
         <NavItem.Skeleton />
-        <NavItem.Skeleton />
-        <NavItem.Skeleton />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
+        <Skeleton className="h-10 w-[78%] ml-auto mb-5" />
       </aside>
     );
   }
